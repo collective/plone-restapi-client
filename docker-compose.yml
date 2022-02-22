@@ -1,0 +1,12 @@
+version: '1.0'
+
+services:
+  plone:
+    image: plone/plone-backend:6.0.0a3
+    environment:
+      - ADDONS=plone.volto==4.0.0a3
+    platform: "linux/amd64"
+    ports:
+      - "8080:8080"
+
+
