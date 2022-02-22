@@ -12,8 +12,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node: ['10.x', '12.x', '14.x']
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+        node: ['12.x', '14.x', '16.x']
+        os: [ubuntu-latest]
 
     steps:
       - name: Checkout repo
@@ -53,12 +53,11 @@ jobs:
         run: npm run lint
 
       - name: Run plone api
-        uses: smartlyio/docker-compose-action@v1
-        with:
-          composeFile: docker-compose.yml
-          serviceName: plone
-          build: true
-          push: "on:push"
+        run: docker compose -f "docker-compose.yml" up -d --build
 
       - name: Test
         run: npm run test --ci --coverage --maxWorkers=2
+
+      - name: Stop plone
+        if: always()
+        run: docker-compose -f "docker-compose.yml" down
