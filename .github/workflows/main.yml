@@ -1,8 +1,13 @@
 name: CI
-on: [push]
+on:
+  push:
+    branches:
+      - main
+  pull_request: {}
+
 jobs:
   build:
-    name: Build, lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}
+    name: ⚒ Build on Node ${{ matrix.node }} and ${{ matrix.os }}
 
     runs-on: ${{ matrix.os }}
     strategy:
@@ -25,8 +30,33 @@ jobs:
       - name: Lint
         run: yarn lint
 
-      - name: Test
-        run: yarn test --ci --coverage --maxWorkers=2
-
       - name: Build
         run: yarn build
+
+  test:
+    name: 🥁 Test with plone api
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Use Node 16
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+
+      - name: Install deps and build
+        run: npm install
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Run plone api
+        uses: smartlyio/docker-compose-action@v1
+        with:
+          composeFile: docker-compose.yml
+          serviceName: plone
+
+      - name: Test
+        run: npm run test --ci --coverage --maxWorkers=2
