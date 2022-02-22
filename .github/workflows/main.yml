@@ -57,6 +57,8 @@ jobs:
         with:
           composeFile: docker-compose.yml
           serviceName: plone
+          build: true
+          push: "on:push"
 
       - name: Test
         run: npm run test --ci --coverage --maxWorkers=2
