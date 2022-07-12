@@ -52,12 +52,5 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      - name: Run plone api
-        run: docker compose -f "docker-compose.yml" up -d --build
-
-      - name: Test
-        run: npm run test --ci --coverage --maxWorkers=2
-
-      - name: Stop plone
-        if: always()
-        run: docker-compose -f "docker-compose.yml" down
+      - name: Run tests
+        run: docker compose -f "docker-compose.yml" up -d --build && npx wait-on --httpTimeout 20000 http-get://localhost:8080/Plone && npm run test --ci --coverage --maxWorkers=2
