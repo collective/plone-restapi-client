@@ -13,6 +13,7 @@
     "test": "tsdx test",
     "test:ci": "tsdx test --ci",
     "test:husky": "NODE_ENV=test CI=true tsdx test --bail --colors",
+    "typecheck": "tsc -b",
     "lint": "tsdx lint",
     "prepare": "tsdx build; is-ci || husky install",
     "size": "size-limit",
