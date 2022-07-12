@@ -3,10 +3,7 @@
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "src"
-  ],
+  "files": ["dist", "src"],
   "engines": {
     "node": ">=10"
   },
@@ -14,8 +11,11 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
+    "test:ci": "tsdx test --ci",
+    "test:husky": "NODE_ENV=test CI=true tsdx test --bail --colors",
+    "typecheck": "tsc -b",
     "lint": "tsdx lint",
-    "prepare": "tsdx build",
+    "prepare": "tsdx build; is-ci || husky install",
     "size": "size-limit",
     "analyze": "size-limit --why"
   },
@@ -48,7 +48,8 @@
   ],
   "devDependencies": {
     "@size-limit/preset-small-lib": "^4.10.2",
-    "husky": "^6.0.0",
+    "husky": "8.0.1",
+    "is-ci": "3.0.1",
     "size-limit": "^4.10.2",
     "tsdx": "^0.14.1",
     "tslib": "^2.2.0",
