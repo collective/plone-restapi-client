@@ -5,7 +5,7 @@
   "typings": "dist/index.d.ts",
   "files": ["dist", "src"],
   "engines": {
-    "node": ">=10"
+    "node": ">=14"
   },
   "scripts": {
     "start": "tsdx watch",
@@ -33,8 +33,17 @@
   },
   "name": "plone-restapi-client",
   "description": "A wrapper for plone.restapi for browser and nodejs needs",
-  "author": "Piero Nicolli",
-  "repository": "https://github.com/pnicolli/plone-restapi-client",
+  "author": "collective",
+  "homepage": "https://github.com/collective/plone-restapi-client#readme",
+  "repository": "https://github.com/collective/plone-restapi-client",
+  "bugs": "https://github.com/collective/plone-restapi-client/issues",
+  "keywords": [
+    "plone",
+    "restapi",
+    "plone-restapi",
+    "api-client",
+    "api-wrapper"
+  ],
   "module": "dist/plone-restapi-client.esm.js",
   "size-limit": [
     {
