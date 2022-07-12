@@ -65,6 +65,7 @@ it('updates a page', async () => {
   expect(res['@type']).toEqual('Document');
   expect(res['@id']).toEqual('http://localhost:8080/Plone/test-page');
   expect(res.title).toEqual('Test Page');
+  expect(res.description).toEqual('Test Page Description');
   expect(res.status).toBe(200);
 });
 
