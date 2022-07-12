@@ -1,9 +1,13 @@
 {
-  "version": "0.1.0",
+  "version": "0.0.0",
   "license": "MIT",
+  "public": true,
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "files": ["dist", "src"],
+  "files": [
+    "dist",
+    "src"
+  ],
   "engines": {
     "node": ">=14"
   },
@@ -55,10 +59,53 @@
       "limit": "10 KB"
     }
   ],
+  "release-it": {
+    "git": {
+      "tagName": "v${version}",
+      "commitMessage": "chore: release v${version}"
+    },
+    "npm": {
+      "publish": true
+    },
+    "github": {
+      "release": true,
+      "releaseName": "${version}"
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "infile": "CHANGELOG.md",
+        "preset": {
+          "name": "conventionalcommits",
+          "types": [
+            {
+              "type": "feat",
+              "section": "Features"
+            },
+            {
+              "type": "fix",
+              "section": "Bug Fixes"
+            },
+            {
+              "type": "refactor",
+              "section": "Changes"
+            },
+            {
+              "type": "chore",
+              "section": "Maintenance"
+            }
+          ]
+        }
+      }
+    }
+  },
   "devDependencies": {
+    "@commitlint/cli": "17.0.3",
+    "@commitlint/config-conventional": "17.0.3",
+    "@release-it/conventional-changelog": "5.0.0",
     "@size-limit/preset-small-lib": "^4.10.2",
     "husky": "8.0.1",
     "is-ci": "3.0.1",
+    "release-it": "15.1.1",
     "size-limit": "^4.10.2",
     "tsdx": "^0.14.1",
     "tslib": "^2.2.0",

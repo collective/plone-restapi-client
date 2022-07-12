@@ -94,6 +94,10 @@ There are many ways to ship styles, including with CSS-in-JS. TSDX has no opinio
 
 For vanilla CSS, you can include it at the root directory and add it to the `files` section in your `package.json`, so that it can be imported separately by your users and run through their bundler's loader.
 
-## Publishing to NPM
+## Commitlint
 
-We recommend using [np](https://github.com/sindresorhus/np).
+We use [commmitlint](https://commitlint.js.org/) for commit message validation based on [Conventional Commits](https://www.conventionalcommits.org/en/).
+
+## Release
+
+Changelog and release management with [release-it](https://github.com/release-it/release-it), using [convential changelog](https://github.com/release-it/conventional-changelog).
