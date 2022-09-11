@@ -33,7 +33,9 @@ export type PloneContent = {
   blocks?: {
     [id: string]: any;
   };
-  blocks_layout?: string[];
+  blocks_layout?: {
+    items: string[];
+  };
   contributors?: string[];
   creators?: string[];
   effective?: string | null;
