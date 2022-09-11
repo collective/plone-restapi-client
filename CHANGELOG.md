@@ -1,5 +1,12 @@
 
 
+## [0.1.1](https://github.com/collective/plone-restapi-client/compare/v0.1.0...v0.1.1) (2022-09-11)
+
+
+### Bug Fixes
+
+* blocks_layout typings ([5159659](https://github.com/collective/plone-restapi-client/commit/5159659b60dbe1c70eaaeae5cd8f84f5fbeac5f9))
+
 ## 0.1.0 (2022-07-12)
 
 
