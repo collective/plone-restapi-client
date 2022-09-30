@@ -1,5 +1,12 @@
 
 
+## [0.1.2](https://github.com/collective/plone-restapi-client/compare/v0.1.1...v0.1.2) (2022-09-30)
+
+
+### Features
+
+* expand content components typings ([a413b30](https://github.com/collective/plone-restapi-client/commit/a413b303a3ea7a51aafe6b9df82b142889a7cf90))
+
 ## [0.1.1](https://github.com/collective/plone-restapi-client/compare/v0.1.0...v0.1.1) (2022-09-11)
 
 
