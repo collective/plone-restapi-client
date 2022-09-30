@@ -6,24 +6,32 @@ export type PloneContent = {
   '@components': {
     actions: {
       '@id': string;
+      [key: string]: any;
     };
     breadcrumbs: {
       '@id': string;
+      [key: string]: any;
     };
     contextnavigation: {
       '@id': string;
+      [key: string]: any;
     };
     navigation: {
       '@id': string;
+      items?: { '@id': string; language: string }[];
+      [key: string]: any;
     };
     types: {
       '@id': string;
+      [key: string]: any;
     };
     workflow: {
       '@id': string;
+      [key: string]: any;
     };
     [key: string]: {
       '@id': string;
+      [key: string]: any;
     };
   };
   id: string;
