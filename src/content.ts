@@ -29,6 +29,11 @@ export type PloneContent = {
       '@id': string;
       [key: string]: any;
     };
+    translations: {
+      '@id': string;
+      items?: { '@id': string; language: string }[];
+      [key: string]: any;
+    };
     [key: string]: {
       '@id': string;
       [key: string]: any;
